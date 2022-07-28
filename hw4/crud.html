@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Hi! I'm Nguyen</title>
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet"> -->
+    
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        sizes="any"
+        href="data:image/svg+xml,&#x3C;svg xmlns=&#x22;http://www.w3.org/2000/svg&#x22; viewBox=&#x22;0 0 100 100&#x22;&#x3E;&#x3C;text y=&#x22;.9em&#x22; font-size=&#x22;90&#x22;&#x3E;&#x1F680;&#x3C;/text&#x3E;&#x3C;/svg&#x3E;"
+    />
+    
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    
+    <script type="module">
+        import * as BlogPosts from './blog.js'; // Cannot use '/blog.js', need to have the '.', you'll see error in console
+        
+        // 1. Define the BlogPost element
+        BlogPosts.defineBlogElements();
+
+        // 2. Create (populate) a post in DB
+        if (BlogPosts.countBlogPosts() == 0) {  // if this check is not there then a post with the same content will be created every Refresh, but with different ID
+            BlogPosts.createPost(BlogPosts.examplePost);
+            for (let post of BlogPosts.examplePosts) {
+                BlogPosts.createPost(post);
+            }
+        }
+        // let post = BlogPosts.examplePost;
+        // let id = BlogPosts.generateId();
+        // BlogPosts.renderBlogPost(BlogPosts.generateBlogPostId(), BlogPosts.examplePost);
+        // BlogPosts.displayBlogPost(id, post, container);
+        
+
+        document.addEventListener('DOMContentLoaded', (_event) => {
+            const container = document.getElementById('blogPosts');
+
+            // Display what we've got so far
+            BlogPosts.displayAllBlogPosts(container);
+
+            // localStorage.clear(); // very bad attempt to fix things so far
+
+            // 3. Set up the form for publishing a blog post
+            const addPostForm = document.getElementById('insert-blogPost');
+
+            addPostForm.addEventListener("submit", (ev) => {
+                // Prevent the default form submission event from continuing and refreshing the page.
+                ev.preventDefault();
+
+                // Load the data from the form into a FormData.
+                const formData = new FormData(ev.target);
+                
+                const newPost = {};
+                for (const [key,value] of formData.entries()) {
+                    console.log(`key: ${key}`);
+                    console.log(`value: ${value}`);
+                    newPost[key] = value;
+                }
+
+                // Insert new blog post
+                BlogPosts.createPost(newPost);
+                BlogPosts.displayAllBlogPosts(container);
+            });
+        });
+
+        
+    </script>
+
+    <template id="blog-template">
+        <post-article>
+            <post-title>
+                <h2>Title</h2>
+                <p>Date</p>
+            </post-title>
+            <post-summary>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </post-summary>
+            <button>Delete</button>
+            <button>Edit</button>
+        </post-article>
+    </template>
+
+</head>
+<body>
+    <header>
+        <!-- <h1>This is Nguyen</h1> -->
+        <div class="themeImage">
+            <img src="" alt="Theme photos">
+            <!-- <cite>Photo by <a href="https://unsplash.com/@timmossholder?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Mossholder</a> on <a href="https://unsplash.com/s/photos/hello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></cite> -->
+        </div>
+        <nav role="navigation">
+            <p class="menu-button">Menu</p>
+            <!-- Drop down menu trial -->
+            <!-- <label for="menu-show" class="menu-button">Menu</label> -->
+            <!-- <input type="checkbox" id="menu-show"> -->
+            <ul>
+                <li><a href="/index.html">Let's Start Here!</a></li>
+                <li><a href="nativedialogs.html">Native Dialog</a></li>
+                <li><a href="customdialog.html">Custom Dialog</a></li>
+                <li><a class="active" href="crud.html">CRUD</a></li>
+                <li><a href="styledcrud.html">Styled CRUD</a></li>
+            </ul> 
+        </nav>
+    </header>
+        
+    <main>
+        <h1 class="pageTitle">Welcome to my Blog!</h1>
+        <section id="blogPosts"></section>
+        <section>
+            <form id="insert-blogPost" action="">
+                <fieldset>
+                    <legend>Create new blog</legend>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" value="Blog post #">
+                    <label for="date">Date</label>
+                    <input type="date" name="date"> <!-- value="YYYY-MM-DD"-->
+                    <!-- At the moment, the best way to deal with dates in forms in a cross-browser way
+                         is to have the user enter the day, month, and year in separate controls -->
+                    <!-- Why this ^ comment? Because you'll see funny date formats between 
+                        the JSON and user inputs -->
+                    <label for="summary">Summary</label>
+                    <textarea name="summary" cols="60" rows="10"></textarea>
+                    <input type="submit" value="Publish post">
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

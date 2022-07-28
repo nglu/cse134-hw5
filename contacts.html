@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Hi! I'm Nguyen</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        sizes="any"
+        href="data:image/svg+xml,&#x3C;svg xmlns=&#x22;http://www.w3.org/2000/svg&#x22; viewBox=&#x22;0 0 100 100&#x22;&#x3E;&#x3C;text y=&#x22;.9em&#x22; font-size=&#x22;90&#x22;&#x3E;&#x1F680;&#x3C;/text&#x3E;&#x3C;/svg&#x3E;"
+    />
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/contacts.css">
+
+    <!-- DOMPurify -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js" integrity="sha512-Qr/d6af6cN41/GIKiSmrQd4Y19/fo0YvWhD1VND8O+BsfbFBaZI4K7VVPoUZrd8PzMQ3CE71CkMjhrKf1NbhdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+            let nameField = document.getElementById('name_input');
+            let messageField = document.getElementById('msg_input');
+    
+            let cleanName = DOMPurify.sanitize(nameField.value, {ALLOWED_TAGS: ['b', 'i'], ALLOWED_ATTR: ['style']});
+            let cleanMessage = DOMPurify.sanitize(messageField.value, {ALLOWED_TAGS: ['b', 'i'], ALLOWED_ATTR: ['style']});
+    
+            nameField.value = cleanName;
+            messageField.value = cleanMessage;
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <!-- <h1>This is Nguyen</h1> -->
+        <div class="themeImage">
+            <img src="/media/theme-contact.jpg" alt="Theme photos">
+            <!-- <cite>Photo by <a href="https://unsplash.com/@fredmarriage?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">freddie marriage</a> on <a href="https://unsplash.com/s/photos/workspace?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></cite> -->
+        </div>
+        <nav role="navigation">
+            <p class="menu-button">Menu</p>
+            <!-- Drop down menu trial -->
+            <!-- <label for="menu-show" class="menu-button">Menu</label> -->
+            <!-- <input type="checkbox" id="menu-show"> -->
+            <ul>
+                <li><a href="/index.html">Let's Start Here!</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/other-things.html">Other things I do</a></li>
+                <li><a href="/my-journey.html">My Journey</a></li>
+                <li><a class="active" href="/contacts.html">Contacts</a></li>
+                <li><a href="/experiment.html">Experiment</a></li>
+                <li><a href="hw4/nativedialogs.html">HW4</a></li>
+            </ul> 
+        </nav>
+    </header>
+        
+    <main>
+        <h1 class="pageTitle">Contacts</h1>
+        <form action="https://httpbin.org/get" method="get">
+            <fieldset>
+                <legend>Contact Form</legend>
+                <ol>
+                    <li>
+                      <label for="name_input">Name: </label>
+                      <input type="text" id="name_input" name="name_input" size="40" required>
+                    </li>
+                    <br />
+                    <li>
+                      <label for="mail_input">E-mail: </label>
+                      <input type="email" id="mail_input" name="mail_input" size="40" required>
+                    </li>
+                    <br />
+                    <li>
+                        <label for="contact_reason">Reason for contact: </label>
+                        <select id="contact_reason" name="contact_reason">
+                            <optgroup label="Job Opportunities">
+                              <option>Tech/Business Field</option>
+                              <option>NGOs</option>
+                              <option>Other</option>
+                            </optgroup>
+                            <optgroup label="Projects Collaboration">
+                              <option>Humanitarian projects (edu, vocationals, etc. )</option>
+                              <option>Environmental Projects</option>
+                              <option>Other</option>
+                            </optgroup>
+                            <option>Other</option>
+                        </select>
+                    </li>
+                    <br>
+                    <li>
+                      <label for="msg_input"></label>
+                      <textarea id="msg_input" name="msg_input"
+                      placeholder="Type your message here"
+                      rows="8" cols="40" required></textarea>
+                    </li>
+                    <br />
+                    <li class="button">
+                        <button type="submit">Send your message</button>
+                    </li>
+                </ol>
+            </fieldset>
+        </form>
+
+        <section class="findMe">
+            <p>You can find me at:</p>
+            <a href="https://www.linkedin.com/in/nguyen-luong-se">
+                <img src="media/In-Blue-34.png" alt="Linked logo">
+            </a>
+            <a href="https://github.com/nglu">
+                <img src="media/GitHub-Mark-32px.png" alt="GitHub logo">
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p> Here's a quote for the day: <b>Be nice to yourself!</b></p>
+    </footer>
+
+</body>
+</html>

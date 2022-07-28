@@ -1,0 +1,21 @@
+@import "styles.css";
+
+/* Contents indise main */
+
+.pageTitle {grid-area: pageTitle;}
+.timeline {grid-area: timeline;}
+
+main {
+    display: grid;
+    gap: 40px;
+    grid-template-areas:
+        "pageTitle"
+        "timeline";
+}
+
+@media screen and (max-width: 950px) {
+}
+
+/* * {
+    border: 1px solid black;
+} */

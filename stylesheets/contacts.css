@@ -1,0 +1,55 @@
+@import "styles.css";
+
+.themeImage img {
+    object-position: bottom;
+}
+
+fieldset {
+    background-color: var(--color-neutral-heavy);
+    border: 0px;
+    border-radius: var(--border-radius-S);
+    grid-area: formField;
+    text-align: left;
+}
+
+ol {
+    list-style: none;
+}
+
+legend {
+    display: none;
+}
+
+button {
+    padding: 10px;
+}
+button:hover {
+    background-color: var(--color-primary-light);
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+/* Contents indise main */
+
+.pageTitle {grid-area: pageTitle;}
+.findMe {grid-area: findMe;}
+
+main {
+    display: grid;
+    gap: 40px;
+    grid-template-areas:
+        "pageTitle"
+        "formField"
+        "findMe";
+}
+
+.findMe {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* * {
+    border: 1px solid black;
+} */

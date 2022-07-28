@@ -1,0 +1,78 @@
+@import "styles.css";
+
+/* Contents indise main */
+
+.pageTitle {grid-area: pageTitle;}
+
+#section1 {grid-area: section1;}
+#section2 {grid-area: section2;}
+
+#sect1-title {grid-area: sect1-title;}
+#sect2-title {grid-area: sect2-title;}
+
+#fig1 {grid-area: fig1;}
+#fig2 {grid-area: fig2;}
+#fig3 {grid-area: fig3;}
+#fig4 {grid-area: fig4;}
+
+main {
+    display: grid;
+    gap: 40px;
+    grid-template-areas:
+        "pageTitle"
+        "section1"
+        "section2"
+}
+
+#section1 {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "sect1-title    sect1-title"
+        "fig1           fig2";
+    align-items: center;
+}
+
+#section2 {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "sect2-title    sect2-title"
+        "fig3           fig4";
+    align-items: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto; 
+    object-fit: cover;
+}
+
+figure figcaption {
+    text-align: center;
+}
+
+@media screen and (max-width: 950px) {
+    #section1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "sect1-title"
+            "fig1"
+            "fig2";
+    }
+    #section2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "sect2-title"
+            "fig3"
+            "fig4";
+    }
+}
+
+/* * {
+    border: 1px solid black;
+} */

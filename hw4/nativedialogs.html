@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Hi! I'm Nguyen</title>
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet"> -->
+    
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        sizes="any"
+        href="data:image/svg+xml,&#x3C;svg xmlns=&#x22;http://www.w3.org/2000/svg&#x22; viewBox=&#x22;0 0 100 100&#x22;&#x3E;&#x3C;text y=&#x22;.9em&#x22; font-size=&#x22;90&#x22;&#x3E;&#x1F680;&#x3C;/text&#x3E;&#x3C;/svg&#x3E;"
+    />
+    
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    <!-- DOMPurify -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js" integrity="sha512-Qr/d6af6cN41/GIKiSmrQd4Y19/fo0YvWhD1VND8O+BsfbFBaZI4K7VVPoUZrd8PzMQ3CE71CkMjhrKf1NbhdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" type="module" src="nativedialog.js"></script>
+
+</head>
+<body>
+    <header>
+        <!-- <h1>This is Nguyen</h1> -->
+        <div class="themeImage">
+            <img src="" alt="Theme photos">
+            <!-- <cite>Photo by <a href="https://unsplash.com/@timmossholder?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Mossholder</a> on <a href="https://unsplash.com/s/photos/hello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></cite> -->
+        </div>
+        <nav role="navigation">
+            <p class="menu-button">Menu</p>
+            <!-- Drop down menu trial -->
+            <!-- <label for="menu-show" class="menu-button">Menu</label> -->
+            <!-- <input type="checkbox" id="menu-show"> -->
+            <ul>
+                <li><a href="/index.html">Let's Start Here!</a></li>
+                <li><a class="active" href="nativedialogs.html">Native Dialog</a></li>
+                <li><a href="customdialog.html">Custom Dialog</a></li>
+                <li><a href="crud.html">CRUD</a></li>
+                <li><a href="styledcrud.html">Styled CRUD</a></li>
+            </ul> 
+        </nav>
+    </header>
+        
+    <main>
+        <h1 class="pageTitle">Native dialogs</h1>
+
+        <button type="button" id="alert-button">Alert</button>
+        <button type="button" id="confirm-button">Confirm</button>
+        <button type="button" id="prompt-button">Prompt</button>
+        <button type="button" id="safer-button">Safer Prompt</button>
+        <br>
+        <output id="button-result"></output>
+
+    </main>
+
+</body>
+</html>

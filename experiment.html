@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Hi! I'm Nguyen</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        sizes="any"
+        href="data:image/svg+xml,&#x3C;svg xmlns=&#x22;http://www.w3.org/2000/svg&#x22; viewBox=&#x22;0 0 100 100&#x22;&#x3E;&#x3C;text y=&#x22;.9em&#x22; font-size=&#x22;90&#x22;&#x3E;&#x1F680;&#x3C;/text&#x3E;&#x3C;/svg&#x3E;"
+    />
+    
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    
+    <script type="application/javascript">
+        function drawSmiley() {
+          const canvas = document.getElementById('canvas');
+          if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+    
+            ctx.beginPath();
+            ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+            ctx.moveTo(110, 75);
+            ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+            ctx.moveTo(65, 65);
+            ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+            ctx.moveTo(95, 65);
+            ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+            ctx.stroke();
+          }
+        }
+    </script>
+</head>
+<body onload="drawSmiley();"> 
+    <!-- w3 does not have ^ semi-colon but MDN does... -->
+    <header>
+        <!-- <h1>This is Nguyen</h1> -->
+        <div class="themeImage">
+            <img src="/media/theme-experiment.jpg" alt="Theme photos">
+            <!-- <cite>Photo by <a href="https://unsplash.com/@nicolasthomas?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nicolas Thomas</a> on <a href="https://unsplash.com/s/photos/experiment?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></cite> -->
+        </div>
+        <nav role="navigation">
+            <p class="menu-button">Menu</p>
+            <!-- Drop down menu trial -->
+            <!-- <label for="menu-show" class="menu-button">Menu</label> -->
+            <!-- <input type="checkbox" id="menu-show"> -->
+            <ul>
+                <li><a href="/index.html">Let's Start Here!</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/other-things.html">Other things I do</a></li>
+                <li><a href="/my-journey.html">My Journey</a></li>
+                <li><a href="/contacts.html">Contacts</a></li>
+                <li><a class="active" href="/experiment.html">Experiment</a></li>
+                <li><a href="hw4/nativedialogs.html">HW4</a></li>
+            </ul> 
+        </nav>
+    </header>
+        
+    <main>
+        <h1>Experiment</h1>
+        <p>This page is dedicated to testing new things I learn from Web Development</p>
+        <h3>Table content</h3>
+        <table>
+            <caption>Courses I'm taking in WI-22</caption>
+            <colgroup>
+                <col span="1" class ="id">
+                <col span="1" class ="name">
+                <col span="1" class ="instructor">
+            </colgroup>
+            <tr>
+                <th scope="col">Course's ID</th>
+                <th scope="col">Course's Name</th>
+                <th scope="col">Instructor</th>
+            </tr>
+            <tr>
+                <td>CSE 134B</td>
+                <td>Web Client Languages</td>
+                <td>Powell</td>
+            </tr>
+            <tr>
+                <td>EDS 124BR</td>
+                <td>Teaching Computational Thinking for Everyone</td>
+                <td>Eguchi</td>
+            </tr>
+        </table>
+
+        <h3>Media content</h3>
+        <p>Listen to the rythm of the falling rain</p>
+        <div>
+            <audio
+                controls
+                src="/media/rain.mp3">
+                    Your browser does not support the <code>audio</code> element.
+            </audio>
+        </div>
+        <p>Cat is your best friend</p>
+        <div>
+            <video controls width="350">
+                <source src="/media/cat_vid.mp4"
+                        type="video/mp4">
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+        </div>
+
+        <h3><span>Inline text</span></h3>
+        <p>This is a place I would <em>really like to visit</em>.</p>
+        <p>Look at all the <pre>s    p    a    c    e</pre> between me and New York</p>
+        <iframe
+            title="Inline Frame Example"
+            width="800"
+            height="600"
+            src="https://www.mapquest.com/directions/from/us/ca/to/us/ny/new-york">
+        </iframe>
+        
+        <h3>Form</h3>
+        <label for="mood">Choose your mood for the day:</label>
+        <input list="mood-list" id="mood-choice" name="mood-choice" />
+
+        <datalist id="mood-list">
+            <option value="Happy">
+            <option value="Motivated">
+            <option value="Neutral">
+            <option value="Under the weather">
+            <option value="Need a break!!!">
+        </datalist>
+
+        <h3>Interactive elements</h3>
+        <details>
+            <summary>Here's a widely known secret</summary>
+            You're beautiful just the way you are!
+        </details>
+
+        <h3>Web Components</h3>
+        <p>Do you want to build a snowman? Click the below button to build more snowman!</p>
+
+        <button onclick="showContent()">More snowman!</button>
+        <div id="snowman">
+            <p>&#9924</p>
+        </div>
+        <template id="template" >
+            <p>&#9924</p>
+        </template>
+
+        <script>
+        function showContent() {
+            var position = document.querySelector('#snowman');
+            var temp = document.querySelector('#template');
+            var clon = temp.content.cloneNode(true);
+            position.appendChild(clon);
+        }
+        </script>
+
+        <!-- Why can you put script for template inside and it works but not the script for canvas -->
+
+        <!-- <script>
+            function drawSmiley() {
+                const canvas = document.getElementById('canvas');
+                if (canvas.getContext) {
+                    const ctx = canvas.getContext('2d');
+
+                    ctx.beginPath();
+                    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+                    ctx.moveTo(110, 75);
+                    ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+                    ctx.moveTo(65, 65);
+                    ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+                    ctx.moveTo(95, 65);
+                    ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+                    ctx.stroke();
+                }
+            }
+        </script> -->
+
+        <canvas id="canvas" width="150" height="150"></canvas>
+        <svg height="100" width="150">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(0, 140, 255);stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="70" cy="50" rx="60" ry="35" fill="url(#grad1)" />
+            <text fill="#ffffff" font-size="15" font-family="Verdana" x="25" y="56">Red or Blue?</text>
+            Sorry, your browser does not support inline SVG.
+        </svg>
+        
+    </main>
+
+    <footer>
+        <p> Here's a quote for the day: <b>Be nice to yourself!</b></p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+@import "styles.css";
+
+/* Contents indise main */
+
+.pageTitle {grid-area: pageTitle;}
+
+#section1 {grid-area: section1;}
+#section2 {grid-area: section2;}
+#section3 {grid-area: section3;}
+
+#sect1-name {grid-area: name1;}
+#sect1-media {grid-area: media1;}
+#sect1-description {grid-area: des1;}
+#sect1-sims {grid-area: sims1;}
+
+#sect2-name {grid-area: name2;}
+#sect2-media {grid-area: media2;}
+#sect2-description {grid-area: des2;}
+#sect2-sims {grid-area: sims2;}
+
+#sect3-name {grid-area: name3;}
+#sect3-media {grid-area: media3;}
+#sect3-description {grid-area: des3;}
+#sect3-sims {grid-area: sims3;}
+
+main {
+    display: grid;
+    gap: 40px;
+    grid-template-areas:
+        "pageTitle"
+        "section1"
+        "section2"
+        "section3"
+}
+
+#section1 {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "media1     name1"
+        "media1     des1"
+        "sims1      sims1";
+}
+
+#section2 {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "media2     name2"
+        "media2     des2"
+        "sims2      sims2";
+}
+
+#section3 {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "media3     name3"
+        "media3     des3"
+        "sims3      sims3";
+}
+
+
+@media screen and (max-width: 950px) {
+    #section1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "name1"
+            "des1"
+            "media1"
+            "sims1";
+    }
+    #section2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "name2"
+            "des2"
+            "media2"
+            "sims2";
+    }
+    #section3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "name3"
+            "des3"
+            "media3"
+            "sims3";
+    }
+}
+
+/* * {
+    border: 1px solid black;
+} */

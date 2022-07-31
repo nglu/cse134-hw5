@@ -19,3 +19,7 @@ You can access all parts of HW4 from any main pages (Home page, Projects, Contac
 Netlify URL for HW5: https://rad-beijinho-02b255.netlify.app/
 
 You can access all parts of HW5 the main page "Let's Start Here!" with the "HW5" tab in nav bar. Once clicking on "HW5" tab, you will be directed to "methodtes.html" and you can see other parts of "HW5" in the new nav bar. You can go back to the main pages by clickin on "Let's Start Here!" tab.
+
+- Part 1: completed
+- Part 2: completed
+- Part 3: no attempt

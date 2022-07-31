@@ -27,12 +27,11 @@
 
             let xhr = new XMLHttpRequest();
             //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
-
             if (xhr) {
                 xhr.open('GET', 'https://www.httpbin.org/get');
                 xhr.onload = function () {
-                    console.log(xhr);
-                    document.getElementById('response').innerHTML = xhr.responseText;
+                    let output = document.getElementById('response');
+                    output.firstChild.innerHTML = xhr.responseText;
                 };
                 xhr.send(payload);
             }
@@ -44,13 +43,11 @@
             let payload = new FormData(myForm);
 
             let xhr = new XMLHttpRequest();
-            //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
-
             if (xhr) {
                 xhr.open('PUT', 'https://www.httpbin.org/put');
                 xhr.onload = function () {
-                    console.log(xhr);
-                    document.getElementById('response').innerHTML = xhr.responseText;
+                    let output = document.getElementById('response');
+                    output.firstChild.innerHTML = xhr.responseText;
                 };
                 xhr.send(payload);
             }
@@ -62,13 +59,11 @@
             let payload = new FormData(myForm);
 
             let xhr = new XMLHttpRequest();
-            //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
-
             if (xhr) {
                 xhr.open('POST', 'https://www.httpbin.org/post');
-                xhr.onload = function () {
-                    console.log(xhr);
-                    document.getElementById('response').innerHTML = xhr.responseText;
+                xhr.onload = function () { 
+                    let output = document.getElementById('response');
+                    output.firstChild.innerHTML = xhr.responseText;
                 };
                 xhr.send(payload);
             }
@@ -80,13 +75,11 @@
             let payload = new FormData(myForm);
 
             let xhr = new XMLHttpRequest();
-            //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
-
             if (xhr) {
                 xhr.open('DELETE', 'https://www.httpbin.org/delete');
                 xhr.onload = function () {
-                    console.log(xhr);
-                    document.getElementById('response').innerHTML = xhr.responseText;
+                    let output = document.getElementById('response');
+                    output.firstChild.innerHTML = xhr.responseText;
                 };
                 xhr.send(payload);
             }
@@ -98,7 +91,7 @@
         <nav role="navigation">
             <p class="menu-button">Navigation</p>
             <ul>
-                <li><a href="./index.html">Let's Start Here! (back to Home page)</a></li>
+                <li><a href="/index.html">Let's Start Here! (back to Home page)</a></li>
                 <li><a href="methodtest.html">Method Test</a></li>
                 <li><a href="webcomponent.html">Web Component</a></li>
             </ul> 
@@ -135,7 +128,7 @@
             <fieldset>
                 <legend>Server Response</legend>
         
-                <output id="response"></output>
+                <output id="response"><pre></pre></output>
         
             </fieldset>
         </form>

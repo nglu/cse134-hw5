@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW5</title>
+    <!-- avoid 404 favicon.io not found -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
+
+    <script type="module">
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log("Everything is loaded.");
+            // prevent default form submit behavior
+            document.getElementById('my-form').addEventListener('submit', (ev) => ev.preventDefault());
+            // add event listener to all the buttons
+            document.getElementById('getBtn').addEventListener('click', getXML);
+            document.getElementById('putBtn').addEventListener('click', putXML);
+            document.getElementById('postBtn').addEventListener('click', postXML);
+            document.getElementById('deleteBtn').addEventListener('click', deleteXML);
+        });
+        
+        function getXML() {
+            document.getElementById('date').value = new Date();
+            let myForm = document.getElementById('my-form');
+            let payload = new FormData(myForm);
+
+            let xhr = new XMLHttpRequest();
+            //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
+
+            if (xhr) {
+                xhr.open('GET', 'https://www.httpbin.org/get');
+                xhr.onload = function () {
+                    console.log(xhr);
+                    document.getElementById('response').innerHTML = xhr.responseText;
+                };
+                xhr.send(payload);
+            }
+        }
+
+        function putXML() {
+            document.getElementById('date').value = new Date();
+            let myForm = document.getElementById('my-form');
+            let payload = new FormData(myForm);
+
+            let xhr = new XMLHttpRequest();
+            //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
+
+            if (xhr) {
+                xhr.open('PUT', 'https://www.httpbin.org/put');
+                xhr.onload = function () {
+                    console.log(xhr);
+                    document.getElementById('response').innerHTML = xhr.responseText;
+                };
+                xhr.send(payload);
+            }
+        }
+
+        function postXML() {
+            document.getElementById('date').value = new Date();
+            let myForm = document.getElementById('my-form');
+            let payload = new FormData(myForm);
+
+            let xhr = new XMLHttpRequest();
+            //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
+
+            if (xhr) {
+                xhr.open('POST', 'https://www.httpbin.org/post');
+                xhr.onload = function () {
+                    console.log(xhr);
+                    document.getElementById('response').innerHTML = xhr.responseText;
+                };
+                xhr.send(payload);
+            }
+        }
+
+        function deleteXML() {
+            document.getElementById('date').value = new Date();
+            let myForm = document.getElementById('my-form');
+            let payload = new FormData(myForm);
+
+            let xhr = new XMLHttpRequest();
+            //let payload = `record-id=${document.getElementById('record-id').value}&article-name=${document.getElementById('article-name').value}&article-body=${document.getElementById('article-body').value}`;
+
+            if (xhr) {
+                xhr.open('DELETE', 'https://www.httpbin.org/delete');
+                xhr.onload = function () {
+                    console.log(xhr);
+                    document.getElementById('response').innerHTML = xhr.responseText;
+                };
+                xhr.send(payload);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav role="navigation">
+            <p class="menu-button">Navigation</p>
+            <ul>
+                <li><a href="./index.html">Let's Start Here! (back to Home page)</a></li>
+                <li><a href="methodtest.html">Method Test</a></li>
+                <li><a href="webcomponent.html">Web Component</a></li>
+            </ul> 
+        </nav>
+    </header>
+    <main>
+        <h1>Method Test</h1>
+        <form action="" id="my-form">
+            <div>
+                <label for="record-id">ID</label>
+                <input type="text" name="record-id" id="record-id">
+            </div>
+            
+            <div>
+                <label for="article-name">Article name</label>
+                <input type="text" name="article-name" id="article-name">
+            </div>
+
+            <div>
+                <label for="article-body">Article body</label>
+                <br>
+                <textarea name="article-body" id="article-body" cols="30" rows="10"></textarea>
+            </div>
+
+            <div>
+                <input type="hidden" name="date" id="date">
+            </div>
+
+            <button id="getBtn">GET</button>
+            <button id="putBtn">PUT</button>
+            <button id="postBtn">POST</button>
+            <button id="deleteBtn">DELETE</button>
+
+            <fieldset>
+                <legend>Server Response</legend>
+        
+                <output id="response"></output>
+        
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>

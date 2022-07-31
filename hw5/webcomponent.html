@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW5</title>
+    <!-- avoid 404 favicon.io not found -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script type="text/javascript" type="module" src="ButtonCount.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav role="navigation">
+            <p class="menu-button">Navigation</p>
+            <ul>
+                <li><a href="/index.html">Let's Start Here! (back to Home page)</a></li>
+                <li><a href="methodtest.html">Method Test</a></li>
+                <li><a href="webcomponent.html">Web Component</a></li>
+            </ul> 
+        </nav>
+    </header>
+    <main>
+        <h1>Web Component</h1>
+        <!-- If we put count inside the shadow, we'd have no easy way to access it (can read the String ofc) -->
+        <!-- A way to allow access to the count value is to have this element have a "count" attr -->
+        <button-count> hearts count</button-count>
+    </main>
+</body>
+</html>
